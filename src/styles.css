@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  color: #18323a;
+  background: #f6f2ea;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --ink: #18323a;
+  --muted: #6d7a77;
+  --paper: #f6f2ea;
+  --line: #d9dfd7;
+  --coral: #e8785f;
+  --mint: #bfe6d6;
+  --blue: #b9d9e4;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--paper); }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #f3b34c; outline-offset: 2px; }
+::selection { background: #f5c7ad; color: var(--ink); }
+html { scrollbar-color: #9fb2a9 #eee9df; scrollbar-width: thin; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #eee9df; }
+::-webkit-scrollbar-thumb { background: #9fb2a9; border: 2px solid #eee9df; border-radius: 99px; }
+
+.font-display { font-family: 'Space Grotesk', sans-serif; }
+.font-mono { font-family: 'DM Mono', monospace; }
+.dot-grid { background-image: radial-gradient(#d4ddd4 1px, transparent 1px); background-size: 18px 18px; }
+.sticker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 12px; }
+.pokemon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.pokemon-card { border-color: #d9dfd7; background: #fff; box-shadow: 0 4px 0 #e4e5dd; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+.pokemon-card:hover { transform: translateY(-4px) rotate(-.5deg); border-color: #18323a; box-shadow: 0 8px 0 #d2ddd4; }
+.pokemon-card:active { transform: translateY(-1px) scale(.985); }
+.pokemon-card.missing { filter: saturate(.55); }
+.pokemon-card.owned { border-color: #a2d9c5; }
+.pokemon-card.repeat { border-color: #ecad90; }
+.reward-card { animation: reward-reveal 360ms cubic-bezier(.2,.9,.25,1.15); }
+@keyframes reward-reveal { from { opacity: 0; transform: translateY(12px) rotate(-3deg) scale(.94); } to { opacity: 1; transform: translateY(0) rotate(0) scale(1); } }
+.collectible-card { border-color: #d9dfd7; background: #fff; box-shadow: 0 4px 0 #e4e5dd; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+.collectible-card:hover { transform: translateY(-4px) rotate(-.5deg); border-color: #18323a; box-shadow: 0 8px 0 #d2ddd4; }
+.collectible-card:active { transform: translateY(-1px) scale(.985); }
+.collectible-card.missing { filter: saturate(.55); }
+.collectible-card.owned { border-color: #a2d9c5; }
+.collectible-card.repeat { border-color: #ecad90; }
+.chest-opening .chest-art { animation: chest-shake .65s ease-in-out; }
+@keyframes chest-shake { 0%, 100% { transform: rotate(0) scale(1); } 25% { transform: rotate(-7deg) scale(1.04); } 50% { transform: rotate(7deg) scale(1.08); } 75% { transform: rotate(-4deg) scale(1.04); } }
+.trade-pair { transition: border-color 160ms ease, background-color 160ms ease; }
+.trade-pair:hover { border-color: #e8785f; background: #fffaf3; }
+.sticker-cell { aspect-ratio: 1; border: 1px solid #d9dfd7; transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease; }
+.sticker-cell:hover { transform: translateY(-2px) rotate(-1deg); border-color: #18323a; }
+.sticker-cell:active { transform: scale(.96); }
+.sticker-cell.missing { background: #fbf9f5; color: #94a09a; }
+.sticker-cell.owned { background: #c7eadb; color: #24604e; border-color: #a2d9c5; }
+.sticker-cell.repeat { background: #f5c7ad; color: #8e493b; border-color: #ecad90; }
+@media (max-width: 640px) { .sticker-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; } }
+@media (max-width: 640px) { .pokemon-grid { grid-template-columns: repeat(2, 1fr); gap: 9px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }

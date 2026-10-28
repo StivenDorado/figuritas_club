@@ -1,0 +1,10 @@
+{
+  "profile": "product-admin",
+  "sourceRoots": ["src"],
+  "canonicalMap": "UX-CONTRACT.md",
+  "requiredCapabilities": ["Form", "Select/Listbox", "Toast", "CRUD"],
+  "ownership": { "Form": "native-owned", "Select/Listbox": "native", "Toast": "shared-app-status", "CRUD": "shared-app-state" },
+  "requiredCommands": ["check", "build"],
+  "commands": { "check": "npm run check", "build": "npm run build" },
+  "evidence": { "exchangeAlgorithm": "src/logic.ts", "collectionFlow": "src/App.tsx" }
+}
